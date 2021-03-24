@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/property.css') }}" />
+<h1>Add New Property</h1>
+
+<form method="post" action="{{ url_for('property') }}">
+    {{ form.csrf_token }}
+    <div class="formgroup">
+        {{ form.title.label }} {{ form.title(class="formcontrol") }}
+    </div>
+    <div class="formgroup">
+        {{ form.description.label }} {{ form.description(class="messcontrol") }}
+    </div>
+    <div class="formgroup2" id="bed">
+        {{ form.bedroom.label }} {{ form.bedroom(class="thiscontrol") }}
+    </div>
+    <div class="formgroup2" id="bath">
+        {{ form.bathroom.label }} {{ form.bathroom(class="thiscontrol") }}
+    </div>
+    <div class="formgroup2" id="cost">
+        {{ form.price.label }} {{ form.price(class="thiscontrol") }}
+    </div>
+    <div class="formgroup2" id="ttype">
+        {{ form.type.label }} {{ form.type(class="thiscontrol") }}
+    </div>
+    <div class="formgroup">
+        {{ form.location.label }} {{ form.location(class="twocontrol") }}
+    </div>
+    <div class="formgroup">
+        {{ form.filename.label }} {{ form.filename(class="twocontrol") }}
+    </div>
+    <div class="formgroup">
+        {{ form.image.label }} {{ form.image(class="imgcontrol") }}
+    </div>
+    <button type="submit" class="butt">Add Property</button>
+</form>
+{% endblock %}

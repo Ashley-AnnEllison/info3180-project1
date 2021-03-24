@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/property.css') }}" />
+<h1>Properties</h1>
+
+{% for file in files %} 
+<div class="propinfo">
+    <div class="col">
+        <div class="card">
+            <div class="img">
+                <img src="{{ url_for('get_property', filename=filename) }}" />
+            </div>
+            <div class="des">
+                <h2>{{ description }}</h2>
+            </div>
+            <div class="loc">
+                <h2>{{ location }}</h2>
+            </div>
+            <div class="price">
+                {{ price }}
+            </div>
+            <div class="butt">
+                <button type="button" class="butt2">View Property</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
